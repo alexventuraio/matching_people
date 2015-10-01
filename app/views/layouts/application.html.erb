@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<!--Let browser know website is optimized for mobile-->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<title>MatchPeople</title>
+	
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<%= favicon_link_tag 'favicon.ico' %>
+	<!--Import Google Icon Font-->
+  	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+	<%= render 'layouts/navigation' %>
+
+	<div style="<%= 'display: none;' if notice.nil? and alert.nil? %>">
+		<div id="float-alert">
+			<p class="notice"><%= notice %></p>
+    		<p class="alert"><%= alert %></p>
+		</div>
+    </div>
+	
+	<%= yield %>
+
+	<%= render 'layouts/footer' %>
+
+	<script>
+		$(document).ready(function() {
+			$('select').material_select(); // Crea listas desplegables transparentes
+			$('.datepicker').pickadate({
+				selectMonths: true, // Creates a dropdown to control month
+				selectYears: 15 // Creates a dropdown of 15 years to control year
+			});
+			// Initialize collapse button
+			$(".button-collapse").sideNav();
+			// Initialize collapsible (uncomment the line below if you use the dropdown variation)
+			//$('.collapsible').collapsible();
+		});
+	</script>
+
+</body>
+</html>

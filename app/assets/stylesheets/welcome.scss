@@ -1,0 +1,35 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#float-alert {
+	background: #b2dfdb;
+    border: 2px solid;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 4px  0 1px 0;
+    color: #00897b;
+    height: auto;
+    line-height: 16px;
+    opacity: 0.8;
+    padding: 0px 10px;
+    position: fixed;
+    text-decoration: none;
+    text-shadow: 0 0px 0 rgba(0, 0, 0, 0.3);
+    width: auto;
+    z-index: 3000;
+    /* Posición */
+    left: 32px;
+    top: 82px;
+}
+#float-alert a {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+#float-alert:hover {
+    opacity: 1;
+}
+
+img {
+    filter: blur(6px) !important;
+}

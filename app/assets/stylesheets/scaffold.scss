@@ -1,0 +1,87 @@
+/*Modificar color de Inputs*/
+input[type=text], input[type=password], input[type=email], input[type=url],
+input[type=time], input[type=date], input[type=datetime-local],
+input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    border-bottom: 2px solid #b0bec5 !important;
+}
+input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 2px solid #b0bec5 !important;
+    box-shadow: 0 2px 0 0 #b0bec5 !important;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+	color: #b0bec5 !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #b0bec5 !important;
+	box-shadow: 0 1px 0 0 #000;
+}
+
+/* label color */
+.input-field label {
+ color: #000;
+}
+/* valid color */
+.input-field input[type=text].valid {
+ border-bottom: 1px solid #000 !important;
+ box-shadow: 0 1px 0 0 #000 !important;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+ border-bottom: 1px solid red !important;
+ box-shadow: 0 1px 0 0 red !important;
+}
+/* Tamaño parallax */
+.parallax-container {
+	height: 600px !important;;
+}
+/* line 302, /app/assets/stylesheets/materialize/components/_global.scss */
+footer.page-footer {
+  margin-top: 0px !important;
+}
+/* Custom default button */
+.lmx-btn-default {
+    background-color: #78BE20;
+    border: 1px solid #78BE20;
+    color: #fff !important;
+    display: block;
+    font-size: 18px;
+    height: 45px;
+    letter-spacing: 0.2em;
+    line-height: 30px;
+    /* Separamos el borde del texto */
+    padding: 0.4em 0.8em;
+    width: 100% !important;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	/* animamos el cambio de colores */
+    -webkit-transition: color 300ms, background 500ms, border-color 700ms;
+    transition: color 300ms, background 500ms, border-color 700ms;
+}
+.lmx-btn-default:active,
+.lmx-btn-default:focus,
+.lmx-btn-default:hover {
+    background: #5c9219;
+    border-color: #5c9219;
+    color: #000;
+}
+
+@media only screen and (max-width : 600px) {
+    .parallax-container {
+    	height: 720px !important;
+    }
+    .parallax-container .section {
+    	height: 680px !important;
+    	top: -3% !important;
+    }
+}

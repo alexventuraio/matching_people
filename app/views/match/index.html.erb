@@ -1,0 +1,16 @@
+<h1>Mis coincidencias</h1>
+
+<div class="row">
+	<div class="col s12">
+		<!-- Podemos hacer el render con un ciclo -->
+        <% @matched_people.each do |person| %>
+            <!-- Maquetado.. -->
+            <p><% person.name %></p>
+        <% end %>
+
+        <!-- Haciendolo con un parcial, el estilo que contenga es aplicado a cada elemento de la colección -->
+        <!-- El parcial debe llamarse como el recurso, en este caso espera un parcial llamado _person -->
+        <!-- ya que la colección es 'Person.all(desde el controlador)' el recurso es 'person' -->
+        <%= render @matched_people %>
+	</div>
+</div>

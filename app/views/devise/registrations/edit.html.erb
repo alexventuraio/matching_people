@@ -1,0 +1,104 @@
+<div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l6 offset-l3">
+        <h4>Editar Perfil <% resource_name.to_s.humanize %></h4>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= devise_error_messages! %>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <div class="input-field col s12">
+                <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+                <%= f.label :password %> <i>(deje en blanco si no quiere cambiar su contraseña)</i>
+            </div>
+
+            <div class="input-field col s12">
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                <%= f.label :password_confirmation %>
+            </div>
+
+            <div class="input-field col s12">
+                <%= f.password_field :current_password, autocomplete: "off" %>
+                <%= f.label :current_password %> <i>(ingrese su contraseña para confirmar sus cambios)</i>
+            </div>
+
+            <div class="divider"></div>
+
+            <%= f.fields_for :person do |p_fields| %>
+                <br/><br/>
+                <div class="input-field col s12">
+                    <%= p_fields.text_field :name, class: 'validate' %>
+                    <%= p_fields.label :name, 'Nombre', class: 'active' %>
+                </div>
+                <div class="input-field col s12">
+                    <%= p_fields.text_field :last_name, class: 'validate' %>
+                    <%= p_fields.label :last_name, 'Apellido Paterno', class: 'active' %>
+                </div>
+                <div class="row" style="margin-bottom: 0px;">
+                    <div class="input-field col s6">
+                        <%= p_fields.select :gender, options_for_select([
+                            ['Seleccione una opción', '', {class: 'disabled selected'}],
+                            ['Hombre', '1'],
+                            ['Mujer', '0']
+                            ], ''), class: 'validate' %>
+                        <%= p_fields.label :gender, 'Género', class: 'active' %>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 0px;">
+                    <div class="input-field col l6">
+                        <%= p_fields.text_field :birthday, class: 'datepicker' %>
+                        <%= p_fields.label :birthday, 'Fecha de Nacimiento', class: 'active' %>
+                    </div>
+                    <div class="input-field col l6">
+                        <%= p_fields.text_field :nationality, class: 'validate' %>
+                        <%= p_fields.label :nationality, 'Nacionalidad (País)', class: 'active' %>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 0px;">
+                    <div class="input-field col l6">
+                        <%= p_fields.telephone_field :phone_number, class: 'validate' %>
+                        <%= p_fields.label :phone_number, 'Número de Telefono', class: 'active' %>
+                    </div>
+                    <div class="input-field col l6">
+                        <%= p_fields.text_field :fav_movie, class: 'validate' %>
+                        <%= p_fields.label :fav_movie, 'Película favorita', class: 'active' %>
+                    </div>
+                </div>
+                <div class="input-field col l6">
+                    <%= p_fields.text_field :fav_music_gender, class: 'validate' %>
+                    <%= p_fields.label :fav_music_gender, 'Género de Música', class: 'active' %>
+                </div>
+                <div class="input-field col l6">
+                    <%= p_fields.select :fav_pet, options_for_select([
+                        ['Seleccione una opción', '', {class: 'disabled selected'}],
+                        ['Gato', 'Gato'],
+                        ['Perro', 'Perro'],
+                        ['Tortuga', 'Tortuga'],
+                        ['Tiburón', 'Tiburón'],
+                        ['Avestruz', 'Avestruz']
+                        ], ''), class: 'validate' %>
+                    <%= p_fields.label :fav_pet, 'Mascota favorita', class: 'active' %>
+                </div>
+            <% end %>
+
+            <div class="input-field col s12 actions">
+                <br>
+                <%= f.submit 'Guardar cambios', class: 'btn blue-grey lighten-3' %>
+            </div>
+        <% end %>
+
+        <div class="input-field col s12">
+            <br>
+            <h5>Cancel my account</h5>
+            <p>¿No le gusta el servicio? <%= button_to "Cancelar mí cuenta", registration_path(resource_name), class: 'btn red lighten-1', data: { confirm: "¿Está seguro de eliminar su cuenta?" }, method: :delete %></p>
+        </div>
+
+        <div class="input-field col s12">
+            <br>
+            <%= link_to "Regresar", :back %>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="parallax-container">
+	<div class="section no-pad-bot">
+		<div class="container">
+
+			<br><br><br><br>
+			<h2 class="header center white-text text-lighten-2">Reunimos a gente como tú</h2>
+			<div class="row center">
+				<h5 class="header col s12 white-text light">Porque tu eres especial, solo te conectamos con la gente igual de especial.</h5>
+			</div>
+			<div class="row center">
+
+				<%= form_tag({controller: 'match', action: 'index'}, method: 'post', class: 'col s10 offset-s1 m12 l12') do %>
+					<div class="input-field">
+						<div class="col s12 m6 l3">
+							<i class="small material-icons white-text">today</i>
+							<%= select_tag 'genero', options_for_select([
+								['Género', '', {selected: 'selected', class: 'disabled selected'}],
+								['Hombre', '1'],
+								['Mujer', '0']
+								], disabled: ['']), class: 'browser-default' %>
+						</div>
+						<div class="col s12 m6 l3">
+							<i class="small material-icons white-text">loyalty</i>
+							<%= select_tag 'edad', options_for_select([
+								['Edad', '', {selected: 'selected', class: ''}],
+								['18 - 25', '25'],
+								['26 - 30', '30'],
+								['31 - 40', '40'],
+								['Más de 40', '41']
+								], disabled: ['']), class: 'browser-default' %>
+						</div>
+						<div class="col s12 m6 l3">
+							<i class="small material-icons white-text">location_on</i>
+							<select name="nacionalidad" class="browser-default">
+								<option value="" disabled selected>Nacionalidad</option>
+								<% @nationalities.each do |nation| %>
+									<option value="<%= nation.nationality %>"><%= nation.nationality %></option>
+								<% end %>
+							</select>
+						</div>
+						<div class="col s12 m6 l3">
+							<i class="small material-icons white-text">search</i>
+							<button class="lmx-btn-default waves-light" type="submit" name="action">Buscar
+								<i class="material-icons right">send</i>
+							</button>
+						</div>
+					</div>
+				<% end %>
+
+			</div>
+
+		</div>
+	</div>
+	<div class="parallax">
+		<%= image_tag 'background1.jpg', alt: 'Unsplashed background img 1', style: 'display: block; -webkit-transform: translate3d(-50%, 159px, 0px);' %>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$('.parallax').parallax(); // Inicializa el Parallax
+	});
+</script>

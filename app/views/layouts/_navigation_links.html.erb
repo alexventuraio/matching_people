@@ -1,0 +1,9 @@
+<li><%= link_to 'Mis coincidencias', '/match/index' %></li>
+
+<% if user_signed_in? %>
+	<li><%= link_to 'Editar Perfil', edit_user_registration_path %></li>
+	<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>
+<% else %>
+	<li><%= link_to 'Iniciar Sesión', new_user_session_path %></li>
+	<li><%= link_to 'Registrarse', new_user_registration_path %></li>
+<% end %>

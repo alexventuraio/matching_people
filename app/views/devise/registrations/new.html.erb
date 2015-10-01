@@ -1,0 +1,97 @@
+<div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l6 offset-l3">
+        <h4>Registrarse</h4>
+
+        <% resource.build_person if resource.person.nil? %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="input-field col s12">
+                <%= f.email_field :email, class: 'validate',autofocus: true %>
+                <%= f.label :email %><br />
+            </div>
+
+            <div class="input-field col s6">
+                <%= f.password_field :password, class: 'validate', autocomplete: 'off' %>
+                <% if @minimum_password_length %>
+                    <%= f.label :password, "Contraseña (#{@minimum_password_length} caracteres mínimo)" %>
+                <% else %>
+                    <%= f.label :password, 'Contraseña', 'data-error': 'Incorrecto', 'data-success': 'Correcto' %>
+                <% end %>
+            </div>
+
+            <div class="input-field col s6">
+                <%= f.password_field :password_confirmation, class: 'validate', autocomplete: 'off' %>
+                <%= f.label :password_confirmation, 'Confirmar contraseña', 'data-error': 'Incorrecto', 'data-success': 'Correcto' %>
+            </div>
+
+            <%= f.fields_for :person do |p_fields| %>
+                <div class="input-field col s12">
+                    <%= p_fields.text_field :name, class: 'validate' %>
+                    <%= p_fields.label :name, 'Nombre' %>
+                </div>
+                <div class="input-field col s12">
+                    <%= p_fields.text_field :last_name, class: 'validate' %>
+                    <%= p_fields.label :last_name, 'Apellido Paterno' %>
+                </div>
+                <div class="row" style="margin-bottom: 0px;">
+                    <div class="input-field col s6">
+                        <%= p_fields.select :gender, options_for_select([
+                            ['Seleccione una opción', '', {class: 'disabled selected'}],
+                            ['Hombre', '1'],
+                            ['Mujer', '0']
+                            ], ''), class: 'validate' %>
+                        <%= p_fields.label :gender, 'Género' %>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 0px;">
+                    <div class="input-field col l6">
+                        <%= p_fields.text_field :birthday, class: 'datepicker' %>
+                        <%= p_fields.label :birthday, 'Fecha de Nacimiento' %>
+                    </div>
+                    <div class="input-field col l6">
+                        <%= p_fields.text_field :nationality, class: 'validate' %>
+                        <%= p_fields.label :nationality, 'Nacionalidad (País)' %>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 0px;">
+                    <div class="input-field col l6">
+                        <%= p_fields.telephone_field :phone_number, class: 'validate' %>
+                        <%= p_fields.label :phone_number, 'Número de Telefono' %>
+                    </div>
+                    <div class="input-field col l6">
+                        <%= p_fields.text_field :fav_movie, class: 'validate' %>
+                        <%= p_fields.label :fav_movie, 'Película favorita' %>
+                    </div>
+                </div>
+                <div class="input-field col l6">
+                    <%= p_fields.text_field :fav_music_gender, class: 'validate' %>
+                    <%= p_fields.label :fav_music_gender, 'Género de Música' %>
+                </div>
+                <div class="input-field col l6">
+                    <%= p_fields.select :fav_pet, options_for_select([
+                        ['Seleccione una opción', '', {class: 'disabled selected'}],
+                        ['Gato', 'Gato'],
+                        ['Perro', 'Perro'],
+                        ['Tortuga', 'Tortuga'],
+                        ['Tiburón', 'Tiburón'],
+                        ['Avestruz', 'Avestruz']
+                        ], ''), class: 'validate' %>
+                    <%= p_fields.label :fav_pet, 'Mascota favorita' %>
+                </div>
+            <% end %>
+
+            <div class="input-field col s12 actions">
+                <br>
+                <%= f.submit 'Crear cuenta', class: 'btn blue-grey lighten-3' %>
+            </div>
+
+        <% end %>
+
+        <div class="input-field col s12">
+            <br>
+            <%= render 'devise/shared/links' %>
+        </div>
+
+    </div>
+</div>

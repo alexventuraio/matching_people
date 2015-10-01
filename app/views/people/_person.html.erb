@@ -1,0 +1,19 @@
+<div class="col s12 m6 l4">
+	<div class="card small z-depth-3">
+		<div class="card-image waves-effect waves-block waves-light">
+			<%= image_tag 'image-2.png', class: 'activator' %>
+		</div>
+		<div class="card-content">
+			<span class="card-title activator grey-text text-darken-4"><%= person.name << ' ' << person.last_name %><i class="material-icons right">more_vert</i></span>
+			<p><a class="deep-orange-text darken-1" href="#"><%= person.age(person.birthday) %> años - Conóceme</a></p>
+		</div>
+		<div class="card-reveal">
+			<span class="card-title grey-text text-darken-4">Hola,<i class="material-icons right">close</i></span>
+			<p>Hola, soy de <b><%= person.nationality %></b>. Creo que tenemos algunas cosas en común. Contactame para conocernos.
+			<p>Correo electrónico: <b><%= person.user.email %></b></p>
+			<p>Teléfono: <b><%= person.phone_number %></b></p>
+			<p>Mascota Favorita: <b><%= person.fav_pet %></b></p>
+			<p>Música Favorita: <b><%= person.fav_music_gender %></b></p>
+		</div>
+	</div>
+</div>
