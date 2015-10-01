@@ -1,3 +1,10 @@
+set :stage, :production
+
+# Replace 127.0.0.1 with your server's IP address!
+# La IP interna en caso de W Azure, debe ser la local en dado caso
+server '100.73.34.101', user: 'deploy', roles: %w{web app db}
+
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
