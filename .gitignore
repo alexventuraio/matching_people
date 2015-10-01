@@ -12,3 +12,9 @@
 !/log/.keep
 /tmp
 .DS_Store
+
+# LenguajeMX
+.ruby-gemset
+.ruby-version
+/config/database.yml
+/config/secrets.yml
