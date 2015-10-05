@@ -2,7 +2,7 @@ set :stage, :production
 
 # Replace 127.0.0.1 with your server's IP address!
 # La IP Publica en caso de W Azure; o la Publica en dado caso de otro VPS
-server '104.44.140.204', user: 'deploy', roles: %w{web app db}
+server '104.214.31.137', user: 'deploy', roles: %w{web app db}
 
 
 # server-based syntax
