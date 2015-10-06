@@ -16,13 +16,13 @@
                 <% if @minimum_password_length %>
                     <%= f.label :password, "Contraseña (#{@minimum_password_length} caracteres mínimo)" %>
                 <% else %>
-                    <%= f.label :password, 'Contraseña', 'data-error': 'Incorrecto', 'data-success': 'Correcto' %>
+                    <%= f.label :password, 'Contraseña', {'data-error': 'Incorrecto', 'data-success': 'Correcto'} %>
                 <% end %>
             </div>
 
             <div class="input-field col s6">
                 <%= f.password_field :password_confirmation, class: 'validate', autocomplete: 'off' %>
-                <%= f.label :password_confirmation, 'Confirmar contraseña', 'data-error': 'Incorrecto', 'data-success': 'Correcto' %>
+                <%= f.label :password_confirmation, 'Confirmar contraseña', {'data-error': 'Incorrecto', 'data-success': 'Correcto'} %>
             </div>
 
             <%= f.fields_for :person do |p_fields| %>

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -32,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 group :development do
 	gem 'capistrano', '~> 3.4.0'
+	gem 'capistrano-bundler', '~> 1.1.4'
 	gem 'capistrano-rails', '~> 1.1.3'
 	gem 'capistrano-rvm', github: "capistrano/rvm"
 	# gem 'capistrano-rvm', '~> 0.1.2'
